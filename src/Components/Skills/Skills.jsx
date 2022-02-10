@@ -1,36 +1,27 @@
 import CreatableSelect from "react-select/creatable";
 import { Container } from "react-bootstrap";
-import { useState, useEffect } from "react";
+import AvailableSkills from "../../Constants/AvailableSkills";
 
-const Skills = () => {
-  const AvailableSkills = [
-    { value: "PHP", label: "PHP" },
-    { value: "JavaScript", label: "JavaScript" },
-    { value: "Node", label: "Node" },
-    { value: "Python", label: "Python" },
-    { value: "Java", label: "Java" },
-    { value: "Xamarin", label: "Xamarin" },
-    { value: "C++", label: "C++" },
-    { value: "Go", label: "Go" },
-  ];
-
-  const [selectedSkills, setSelectedSkills] = useState([]);
-  const skillAddHandler = value => setSelectedSkills(value);
-
-  useEffect(() => {
-    console.log(selectedSkills);
-  }, [selectedSkills]);
+const Skills = ({ mode, data, addHandler }) => {
   return (
-    <Container>
-      <div>Skills</div>
-      <CreatableSelect
-        name="skills"
-        isMulti
-        placeholder="Enter your skills"
-        value={selectedSkills}
-        onChange={skillAddHandler}
-        options={AvailableSkills}
-      />
+    <Container className="section">
+      <div className="section__heading">Skills</div>
+      {mode === "edit" ? (
+        <CreatableSelect
+          name="skills"
+          isMulti
+          placeholder="Enter your skills"
+          value={data}
+          onChange={addHandler}
+          options={AvailableSkills}
+        />
+      ) : (
+        <div className="section__content">
+          {data.length === 0
+            ? "Add some skills to attract hirers"
+            : data.map(d => d.label).join("| ")}
+        </div>
+      )}
     </Container>
   );
 };
