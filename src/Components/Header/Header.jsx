@@ -1,6 +1,5 @@
 import { FaGithub } from "react-icons/fa";
 import { Navbar, Container } from "react-bootstrap";
-import "./Header.css";
 
 const Header = () => (
   // <div className="header">

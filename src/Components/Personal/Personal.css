@@ -1,0 +1,25 @@
+.name-container {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.name {
+  font-size: 45px;
+  max-width: 500px;
+}
+
+.details-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+}
+.details-container .mb-3,
+.name-container .mb-3 {
+  width: 100%;
+}
+
+.detail {
+  font-size: 18px;
+  text-align: right;
+}
