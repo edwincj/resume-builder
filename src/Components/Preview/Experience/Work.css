@@ -1,0 +1,28 @@
+.work {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  min-height: 100px;
+}
+
+.year {
+  text-align: center;
+}
+
+.year,
+.work-designation {
+  font-size: 20px;
+  font-style: italic;
+  text-transform: capitalize;
+}
+
+.work-place {
+  font-size: 25px;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.work > *:nth-child(2),
+.year {
+  flex: 1 1 50%;
+}

@@ -1,0 +1,42 @@
+.personal-view-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #2e3646;
+  color: #9b8556;
+}
+
+.personal-view-container > div {
+  text-align: center;
+  width: calc(100% - 4.4rem);
+}
+
+.name {
+  font-size: 50px;
+  font-weight: bold;
+  color: #e2e2e0;
+}
+
+.designation {
+  font-size: 30px;
+  font-weight: bold;
+  border-top: 1px solid #d89d1d;
+}
+
+.details {
+  display: flex;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.details > div {
+  align-items: center;
+  flex: 1;
+}
+
+.details > :nth-child(2) {
+  border-right: 1px solid #d89d1d;
+  border-left: 1px solid #d89d1d;
+}

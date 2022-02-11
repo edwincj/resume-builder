@@ -1,27 +1,25 @@
-@import "./Components/Personal/Personal.css";
-@import "./Components/Header/Header.css";
-
-/**, *::before, *::after {
-    font-family: Gotham Rounded, sans-serif;
-    box-sizing: border-box;
-}*/
-
-body {
+* {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
 
-/*html {
-  font-size: 25px;
-}*/
-
-.mr-1 {
-  margin-right: 5px;
+:root {
+  --navbar-height: 68px;
 }
 
-.section__heading {
+body {
+  padding-top: var(--navbar-height);
+}
+
+.section {
+  padding-bottom: 25px;
+}
+
+.section-heading {
   font-size: 20px;
   text-transform: capitalize;
+  margin: 15px 0px;
 }
 
 .section__content {
@@ -43,4 +41,33 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 10px;
+}
+
+/* .view-container {
+  border: 2px solid;
+  border-color: hsl(40, 35%, 7%);
+} */
+
+.button-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 100px;
+  margin-top: 40px;
+}
+
+.section-message {
+  font-style: italic;
+  text-align: center;
+  background-color: beige;
+  padding: 20px 0px;
+}
+
+.text-box {
+  margin-bottom: 20px;
+}
+
+.button-container > * {
+  margin-left: 10px;
 }

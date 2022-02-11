@@ -1,11 +1,14 @@
 import { useState } from "react";
 import { Button, Container, Form } from "react-bootstrap";
 import "./App.css";
-import Section from "./Components/Section/Section";
+import Section from "./Components/Edit/Section/Section";
 import Header from "./Components/Header/Header";
-import Personal from "./Components/Personal/Personal";
-import Skills from "./Components/Skills/Skills";
+import Personal from "./Components/Edit/Personal/Personal";
+import Skills from "./Components/Edit/Skills/Skills";
 import InitialDetails from "./Constants/InitialPersonalDetails";
+import PersonalView from "./Components/Preview/PersonalView/PersonalView";
+import Experience from "./Components/Preview/Experience/Experience";
+import SkillsView from "./Components/Preview/SkillsView/SkillsView";
 
 const App = () => {
   const [selectedSkills, setSelectedSkills] = useState([]);
@@ -17,6 +20,7 @@ const App = () => {
   const presonalChangeHandler = change => {
     setPersonalDetails(prev => ({ ...prev, ...change }));
   };
+
   const newHandler = () => {
     setSelectedSkills([]);
     setPersonalDetails(InitialDetails);
@@ -26,51 +30,62 @@ const App = () => {
   };
 
   const submitHandler = e => {
+    console.log("submit");
     e.preventDefault();
     mode === "edit" ? setMode("view") : setMode("edit");
   };
 
-  return (
-    <>
-      <Header />
+  const editComponent = (
+    <Container>
       <Form onSubmit={submitHandler}>
         <Personal
-          mode={mode}
           data={personaldetails}
           changeHandler={presonalChangeHandler}
         />
         <Section
-          mode={mode}
           data={workPlaces}
           changeHandler={setWorkPlaces}
           type="experience"
         />
         <Section
-          mode={mode}
           data={institutes}
           changeHandler={setInstitutes}
           type="education"
         />
-        <Skills
-          mode={mode}
-          data={selectedSkills}
-          addHandler={skillAddHandler}
-        />
-        <Container className="button-container">
-          <Button variant="info" type="reset" onClick={newHandler}>
+        <Skills data={selectedSkills} addHandler={skillAddHandler} />
+        <div className="button-container">
+          <Button variant="success" type="submit">
+            Save
+          </Button>
+          <Button variant="primary" type="reset" onClick={newHandler}>
             New
           </Button>
-          {mode === "edit" ? (
-            <Button variant="success" type="submit">
-              Save
-            </Button>
-          ) : (
-            <Button variant="warning" type="submit">
-              Edit
-            </Button>
-          )}
-        </Container>
+        </div>
       </Form>
+    </Container>
+  );
+
+  const viewComponent = (
+    <>
+      <PersonalView data={personaldetails} />
+      <Experience type={"experience"} data={workPlaces} />
+      <Experience type={"education"} data={institutes} />
+      <SkillsView data={selectedSkills} />
+      <Container className="button-container">
+        <Button variant="success" type="submit" onClick={submitHandler}>
+          Edit
+        </Button>
+        <Button variant="primary" type="reset" onClick={newHandler}>
+          New
+        </Button>
+      </Container>
+    </>
+  );
+
+  return (
+    <>
+      <Header />
+      {mode === "edit" ? editComponent : viewComponent}
     </>
   );
 };
