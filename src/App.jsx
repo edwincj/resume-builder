@@ -30,7 +30,6 @@ const App = () => {
   };
 
   const submitHandler = e => {
-    console.log("submit");
     e.preventDefault();
     mode === "edit" ? setMode("view") : setMode("edit");
   };
@@ -72,10 +71,10 @@ const App = () => {
       <Experience type={"education"} data={institutes} />
       <SkillsView data={selectedSkills} />
       <Container className="button-container">
-        <Button variant="success" type="submit" onClick={submitHandler}>
+        <Button variant="success" onClick={submitHandler}>
           Edit
         </Button>
-        <Button variant="primary" type="reset" onClick={newHandler}>
+        <Button variant="primary" onClick={newHandler}>
           New
         </Button>
       </Container>

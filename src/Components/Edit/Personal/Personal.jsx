@@ -9,10 +9,10 @@ const Personal = ({ data, changeHandler }) => {
         <Col md={6} className="text-box">
           <Form.Control
             type="text"
+            required
             id="name"
             name="name"
             placeholder="Enter Name"
-            required
             value={data.name}
             onChange={e => changeHandler({ name: e.target.value })}
           />
@@ -20,11 +20,11 @@ const Personal = ({ data, changeHandler }) => {
 
         <Col md={6} className="text-box">
           <Form.Control
+            required
             type="text"
             placeholder="Enter Designation"
             id="designation"
             name="designation"
-            required
             value={data.designation}
             onChange={e => changeHandler({ designation: e.target.value })}
           />
@@ -35,9 +35,9 @@ const Personal = ({ data, changeHandler }) => {
         <Col md={6} className="text-box">
           <Form.Control
             type="email"
+            required
             id="email"
             name="email"
-            required
             placeholder="Enter Email Id"
             value={data.email}
             onChange={e => changeHandler({ email: e.target.value })}
@@ -47,26 +47,24 @@ const Personal = ({ data, changeHandler }) => {
         <Col md={6} className="text-box">
           <Form.Control
             type="number"
+            required
             id="phone"
             name="phone"
-            required
             placeholder="Enter Phone"
             value={data.phone}
             onChange={e => changeHandler({ phone: e.target.value })}
           />
-          {/* </Form.Group>
-          <Form.Group className="mb-3"> */}
         </Col>
       </Row>
 
       <Row>
         <Col md={12} className="text-box">
           <Form.Control
+            required
             as="textarea"
             rows={2}
             id="address"
             name="address"
-            required
             placeholder="Enter Address"
             value={data.address}
             onChange={e => changeHandler({ address: e.target.value })}

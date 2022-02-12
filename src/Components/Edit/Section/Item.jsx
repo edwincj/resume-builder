@@ -26,6 +26,8 @@ const Item = ({ data, index, deleteHandler, editHandler, type }) => {
               <Form.Control
                 type="text"
                 required
+                id="work"
+                name="work"
                 placeholder={Company}
                 value={name}
                 onChange={e => changeHandler({ name: e.target.value })}
@@ -36,6 +38,8 @@ const Item = ({ data, index, deleteHandler, editHandler, type }) => {
               <Form.Control
                 type="text"
                 required
+                id="degree"
+                name="degree"
                 placeholder={Designation}
                 value={degree}
                 onChange={e => changeHandler({ degree: e.target.value })}

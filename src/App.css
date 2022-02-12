@@ -44,11 +44,6 @@ body {
   padding: 10px;
 }
 
-/* .view-container {
-  border: 2px solid;
-  border-color: hsl(40, 35%, 7%);
-} */
-
 .button-container {
   display: flex;
   align-items: center;

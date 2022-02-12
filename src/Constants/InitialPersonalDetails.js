@@ -1,9 +1,9 @@
-const InitialPersonalDetails = {
-  name: "EDWIN",
-  designation: "DEVELOPER",
-  email: "edwi@gmail.com",
-  phone: "7878787878",
-  address: "225 Baker Street",
+const INITIAL_PERSONAL_DETAILS = {
+  name: "",
+  designation: "",
+  email: "",
+  phone: "",
+  address: "",
 };
 
-export default InitialPersonalDetails;
+export default INITIAL_PERSONAL_DETAILS;

@@ -1,7 +1,7 @@
 import CreatableSelect from "react-select/creatable";
 import AvailableSkills from "../../../Constants/AvailableSkills";
 
-const Skills = ({ mode, data, addHandler }) => {
+const Skills = ({ data, addHandler }) => {
   return (
     <div className="section">
       <div className="section-heading">Skills</div>

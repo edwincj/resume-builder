@@ -1,4 +1,4 @@
-const AvailableSkills = [
+const AVAILABLE_SKILLS = [
   { value: "PHP", label: "PHP" },
   { value: "JavaScript", label: "JavaScript" },
   { value: "Node", label: "Node" },
@@ -9,4 +9,4 @@ const AvailableSkills = [
   { value: "Go", label: "Go" },
 ];
 
-export default AvailableSkills;
+export default AVAILABLE_SKILLS;
