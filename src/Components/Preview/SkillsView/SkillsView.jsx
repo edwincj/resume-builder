@@ -1,6 +1,7 @@
+import "./SkillsView.css";
+
 import { Badge } from "react-bootstrap";
 import { v4 as uuidv4 } from "uuid";
-import "./SkillsView.css";
 
 const SkillsView = ({ data }) => {
   return (

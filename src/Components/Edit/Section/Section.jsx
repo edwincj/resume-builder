@@ -1,7 +1,8 @@
+import Item from "./Item";
+
 import { Button } from "react-bootstrap";
 import { BiPlus } from "react-icons/bi";
 import { v4 as uuidv4 } from "uuid";
-import Item from "./Item";
 
 const Section = ({ type, data, changeHandler }) => {
   const clickHandler = () => {

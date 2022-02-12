@@ -1,5 +1,7 @@
 import "./PersonalView.css";
+
 import { MdEmail, MdPhone, MdHome } from "react-icons/md";
+
 const PersonalView = ({ data }) => {
   return (
     <div className="personal-view-container">

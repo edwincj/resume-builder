@@ -1,9 +1,11 @@
 import Experience from "./Experience/Experience";
 import PersonalView from "./PersonalView/PersonalView";
 import SkillsView from "./SkillsView/SkillsView";
+
 import { Button, Container } from "react-bootstrap";
 import { useContext, useEffect } from "react";
 import { ResumeContext } from "../../App";
+
 import {
   TYPE_EDUCATION,
   TYPE_EXPERIENCE,

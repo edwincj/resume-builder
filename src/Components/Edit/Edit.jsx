@@ -1,9 +1,11 @@
-import { useContext } from "react";
-import { Container, Form, Button } from "react-bootstrap";
-import { ResumeContext } from "../../App";
 import Personal from "./Personal/Personal";
 import Section from "./Section/Section";
 import Skills from "./Skills/Skills";
+
+import { useContext } from "react";
+import { Container, Form, Button } from "react-bootstrap";
+import { ResumeContext } from "../../App";
+
 import {
   TYPE_EDUCATION,
   TYPE_EXPERIENCE,

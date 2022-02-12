@@ -1,5 +1,6 @@
-import { FaGithub } from "react-icons/fa";
 import "./Header.css";
+
+import { FaGithub } from "react-icons/fa";
 
 const Header = () => (
   <div className="header">

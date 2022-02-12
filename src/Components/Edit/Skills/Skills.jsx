@@ -1,7 +1,8 @@
-import { useContext } from "react";
-import CreatableSelect from "react-select/creatable";
-import { ResumeContext } from "../../../App";
 import AvailableSkills from "../../../Constants/AvailableSkills";
+import CreatableSelect from "react-select/creatable";
+
+import { useContext } from "react";
+import { ResumeContext } from "../../../App";
 
 const Skills = ({ data }) => {
   const { skillAddHandler } = useContext(ResumeContext);

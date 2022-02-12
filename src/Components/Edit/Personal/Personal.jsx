@@ -1,7 +1,8 @@
+import "./Personal.css";
+
 import { useContext } from "react";
 import { Row, Col, Form } from "react-bootstrap";
 import { ResumeContext } from "../../../App";
-import "./Personal.css";
 
 const Personal = ({ data }) => {
   const { presonalChangeHandler } = useContext(ResumeContext);
