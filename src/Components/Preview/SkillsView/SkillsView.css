@@ -3,3 +3,14 @@
   margin: 5px;
   color: #2e3646;
 }
+
+.skill-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 2rem;
+  padding: 0.5rem 2rem 0.5rem 2rem;
+  width: 100%;
+  flex: 1 1 50%;
+  border-left: 3px solid #2e3646;
+}

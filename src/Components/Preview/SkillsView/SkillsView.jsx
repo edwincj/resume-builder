@@ -9,7 +9,7 @@ const SkillsView = ({ data }) => {
       <div className="side-bar">
         <div className="title">Skills</div>
       </div>
-      <div className="content">
+      <div className="skill-content">
         {data.length > 0 ? (
           data.map(skill => (
             <Badge pill bg="secondary" key={uuidv4()} className="skill-label">
