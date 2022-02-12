@@ -6,9 +6,7 @@ import Header from "./Components/Header/Header";
 import Personal from "./Components/Edit/Personal/Personal";
 import Skills from "./Components/Edit/Skills/Skills";
 import InitialDetails from "./Constants/InitialPersonalDetails";
-import PersonalView from "./Components/Preview/PersonalView/PersonalView";
-import Experience from "./Components/Preview/Experience/Experience";
-import SkillsView from "./Components/Preview/SkillsView/SkillsView";
+import Preview from "./Components/Preview/Preview";
 
 const App = () => {
   const [selectedSkills, setSelectedSkills] = useState([]);
@@ -64,27 +62,26 @@ const App = () => {
     </Container>
   );
 
-  const viewComponent = (
-    <>
-      <PersonalView data={personaldetails} />
-      <Experience type={"experience"} data={workPlaces} />
-      <Experience type={"education"} data={institutes} />
-      <SkillsView data={selectedSkills} />
-      <Container className="button-container">
-        <Button variant="success" onClick={submitHandler}>
-          Edit
-        </Button>
-        <Button variant="primary" onClick={newHandler}>
-          New
-        </Button>
-      </Container>
-    </>
-  );
+  const userInfo = {
+    personaldetails,
+    workPlaces,
+    institutes,
+    selectedSkills,
+  };
+
+  const handlers = {
+    submitHandler,
+    newHandler,
+  };
 
   return (
     <>
       <Header />
-      {mode === "edit" ? editComponent : viewComponent}
+      {mode === "edit" ? (
+        editComponent
+      ) : (
+        <Preview data={userInfo} handlers={handlers} />
+      )}
     </>
   );
 };

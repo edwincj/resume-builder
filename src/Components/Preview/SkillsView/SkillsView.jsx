@@ -3,7 +3,6 @@ import { v4 as uuidv4 } from "uuid";
 import "./SkillsView.css";
 
 const SkillsView = ({ data }) => {
-  console.log(data);
   return (
     <div className="preview-section">
       <div className="side-bar">
