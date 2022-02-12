@@ -17,12 +17,18 @@
   font-size: 50px;
   font-weight: bold;
   color: #e2e2e0;
+  text-transform: uppercase;
+}
+
+.home-address {
+  text-transform: capitalize;
 }
 
 .designation {
   font-size: 30px;
   font-weight: bold;
   border-top: 1px solid #d89d1d;
+  text-transform: uppercase;
 }
 
 .details {

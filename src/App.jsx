@@ -1,20 +1,21 @@
-import { useState } from "react";
-import { Button, Container, Form } from "react-bootstrap";
+import { useState, createContext } from "react";
 import "./App.css";
-import Section from "./Components/Edit/Section/Section";
 import Header from "./Components/Header/Header";
-import Personal from "./Components/Edit/Personal/Personal";
-import Skills from "./Components/Edit/Skills/Skills";
 import InitialDetails from "./Constants/InitialPersonalDetails";
 import Preview from "./Components/Preview/Preview";
+import Edit from "./Components/Edit/Edit";
+
+export const ResumeContext = createContext();
 
 const App = () => {
   const [selectedSkills, setSelectedSkills] = useState([]);
-  const [personaldetails, setPersonalDetails] = useState(InitialDetails);
+  const [personalDetails, setPersonalDetails] = useState(InitialDetails);
   const [workPlaces, setWorkPlaces] = useState([]);
   const [institutes, setInstitutes] = useState([]);
   const [mode, setMode] = useState("edit");
+
   const skillAddHandler = value => setSelectedSkills(value);
+
   const presonalChangeHandler = change => {
     setPersonalDetails(prev => ({ ...prev, ...change }));
   };
@@ -25,6 +26,7 @@ const App = () => {
     setInstitutes([]);
     setWorkPlaces([]);
     setMode("edit");
+    window.scrollTo(0, 0);
   };
 
   const submitHandler = e => {
@@ -32,56 +34,32 @@ const App = () => {
     mode === "edit" ? setMode("view") : setMode("edit");
   };
 
-  const editComponent = (
-    <Container>
-      <Form onSubmit={submitHandler}>
-        <Personal
-          data={personaldetails}
-          changeHandler={presonalChangeHandler}
-        />
-        <Section
-          data={workPlaces}
-          changeHandler={setWorkPlaces}
-          type="experience"
-        />
-        <Section
-          data={institutes}
-          changeHandler={setInstitutes}
-          type="education"
-        />
-        <Skills data={selectedSkills} addHandler={skillAddHandler} />
-        <div className="button-container">
-          <Button variant="success" type="submit">
-            Save
-          </Button>
-          <Button variant="primary" type="reset" onClick={newHandler}>
-            New
-          </Button>
-        </div>
-      </Form>
-    </Container>
-  );
+  const contextValue = {
+    submitHandler,
+    newHandler,
+    presonalChangeHandler,
+    skillAddHandler,
+    setWorkPlaces,
+    setInstitutes,
+  };
 
   const userInfo = {
-    personaldetails,
+    personalDetails,
     workPlaces,
     institutes,
     selectedSkills,
   };
 
-  const handlers = {
-    submitHandler,
-    newHandler,
-  };
-
   return (
     <>
       <Header />
-      {mode === "edit" ? (
-        editComponent
-      ) : (
-        <Preview data={userInfo} handlers={handlers} />
-      )}
+      <ResumeContext.Provider value={contextValue}>
+        {mode === "edit" ? (
+          <Edit data={userInfo} />
+        ) : (
+          <Preview data={userInfo} />
+        )}
+      </ResumeContext.Provider>
     </>
   );
 };

@@ -2,18 +2,19 @@ import Experience from "./Experience/Experience";
 import PersonalView from "./PersonalView/PersonalView";
 import SkillsView from "./SkillsView/SkillsView";
 import { Button, Container } from "react-bootstrap";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
+import { ResumeContext } from "../../App";
 
-const Preview = ({ data, handlers }) => {
-  const { personaldetails, workPlaces, institutes, selectedSkills } = data;
-  const { submitHandler, newHandler } = handlers;
+const Preview = ({ data }) => {
+  const { personalDetails, workPlaces, institutes, selectedSkills } = data;
+  const { submitHandler, newHandler } = useContext(ResumeContext);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   return (
     <>
-      <PersonalView data={personaldetails} />
+      <PersonalView data={personalDetails} />
       <Experience data={workPlaces} type={"experience"} />
       <Experience data={institutes} type={"education"} />
       <SkillsView data={selectedSkills} />

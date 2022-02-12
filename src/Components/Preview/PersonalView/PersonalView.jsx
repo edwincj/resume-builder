@@ -14,7 +14,7 @@ const PersonalView = ({ data }) => {
           <MdEmail />
           <div>{data.email}</div>
         </div>
-        <div>
+        <div className="home-address">
           <MdHome />
           <div>{data.address}</div>
         </div>

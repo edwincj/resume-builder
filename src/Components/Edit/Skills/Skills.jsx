@@ -1,7 +1,10 @@
+import { useContext } from "react";
 import CreatableSelect from "react-select/creatable";
+import { ResumeContext } from "../../../App";
 import AvailableSkills from "../../../Constants/AvailableSkills";
 
-const Skills = ({ data, addHandler }) => {
+const Skills = ({ data }) => {
+  const { skillAddHandler } = useContext(ResumeContext);
   return (
     <div className="section">
       <div className="section-heading">Skills</div>
@@ -10,7 +13,7 @@ const Skills = ({ data, addHandler }) => {
         isMulti
         placeholder="Add skills"
         value={data}
-        onChange={addHandler}
+        onChange={skillAddHandler}
         options={AvailableSkills}
       />
     </div>

@@ -1,7 +1,11 @@
+import { useContext } from "react";
 import { Row, Col, Form } from "react-bootstrap";
+import { ResumeContext } from "../../../App";
 import "./Personal.css";
 
-const Personal = ({ data, changeHandler }) => {
+const Personal = ({ data }) => {
+  const { presonalChangeHandler } = useContext(ResumeContext);
+
   return (
     <div className="section">
       <div className="section-heading">Personal Details</div>
@@ -14,7 +18,7 @@ const Personal = ({ data, changeHandler }) => {
             name="name"
             placeholder="Enter Name"
             value={data.name}
-            onChange={e => changeHandler({ name: e.target.value })}
+            onChange={e => presonalChangeHandler({ name: e.target.value })}
           />
         </Col>
 
@@ -26,7 +30,9 @@ const Personal = ({ data, changeHandler }) => {
             id="designation"
             name="designation"
             value={data.designation}
-            onChange={e => changeHandler({ designation: e.target.value })}
+            onChange={e =>
+              presonalChangeHandler({ designation: e.target.value })
+            }
           />
         </Col>
       </Row>
@@ -40,7 +46,7 @@ const Personal = ({ data, changeHandler }) => {
             name="email"
             placeholder="Enter Email Id"
             value={data.email}
-            onChange={e => changeHandler({ email: e.target.value })}
+            onChange={e => presonalChangeHandler({ email: e.target.value })}
           />
         </Col>
 
@@ -52,7 +58,7 @@ const Personal = ({ data, changeHandler }) => {
             name="phone"
             placeholder="Enter Phone"
             value={data.phone}
-            onChange={e => changeHandler({ phone: e.target.value })}
+            onChange={e => presonalChangeHandler({ phone: e.target.value })}
           />
         </Col>
       </Row>
@@ -67,7 +73,7 @@ const Personal = ({ data, changeHandler }) => {
             name="address"
             placeholder="Enter Address"
             value={data.address}
-            onChange={e => changeHandler({ address: e.target.value })}
+            onChange={e => presonalChangeHandler({ address: e.target.value })}
           />
         </Col>
       </Row>
