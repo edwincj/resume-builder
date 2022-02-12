@@ -1,10 +1,13 @@
-import { useState, createContext, useEffect } from "react";
 import "./App.css";
 import Header from "./Components/Header/Header";
 import InitialDetails from "./Constants/InitialPersonalDetails";
 import Preview from "./Components/Preview/Preview";
 import Edit from "./Components/Edit/Edit";
+
+import { useState, createContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+
+import { MODE_EDIT, MODE_VIEW } from "./Constants/FunctionalConstants";
 
 export const ResumeContext = createContext();
 
@@ -28,13 +31,13 @@ const App = ({ current }) => {
     setPersonalDetails(InitialDetails);
     setInstitutes([]);
     setWorkPlaces([]);
-    setMode("edit");
+    setMode(MODE_EDIT);
     window.scrollTo(0, 0);
   };
 
   const submitHandler = e => {
     e.preventDefault();
-    mode === "edit" ? setMode("view") : setMode("edit");
+    mode === MODE_EDIT ? setMode(MODE_VIEW) : setMode(MODE_EDIT);
   };
 
   const contextValue = {
@@ -59,17 +62,17 @@ const App = ({ current }) => {
 
   useEffect(() => {
     if (
-      mode === "view" &&
+      mode === MODE_VIEW &&
       JSON.stringify(InitialDetails) === JSON.stringify(personalDetails)
     )
-      setMode("edit");
+      setMode(MODE_EDIT);
   }, []);
 
   return (
     <>
       <Header />
       <ResumeContext.Provider value={contextValue}>
-        {mode === "edit" ? (
+        {mode === MODE_EDIT ? (
           <Edit data={userInfo} />
         ) : (
           <Preview data={userInfo} />

@@ -1,11 +1,12 @@
 import { Button, Col, Form, Row } from "react-bootstrap";
 import { BiTrash } from "react-icons/bi";
+import { TYPE_EDUCATION } from "../../../Constants/FunctionalConstants";
 
 const Item = ({ data, index, deleteHandler, editHandler, type }) => {
   const { id, name, degree, start, end } = data;
 
   const [Company, Designation] =
-    type === "education"
+    type === TYPE_EDUCATION
       ? ["University", "Degree"]
       : ["Company", "Designation"];
 

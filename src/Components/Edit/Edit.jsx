@@ -4,6 +4,10 @@ import { ResumeContext } from "../../App";
 import Personal from "./Personal/Personal";
 import Section from "./Section/Section";
 import Skills from "./Skills/Skills";
+import {
+  TYPE_EDUCATION,
+  TYPE_EXPERIENCE,
+} from "../../Constants/FunctionalConstants";
 
 const Edit = ({ data }) => {
   const { personalDetails, workPlaces, institutes, selectedSkills } = data;
@@ -15,12 +19,12 @@ const Edit = ({ data }) => {
         <Personal data={personalDetails} />
         <Section
           data={workPlaces}
-          type="experience"
+          type={TYPE_EXPERIENCE}
           changeHandler={setWorkPlaces}
         />
         <Section
           data={institutes}
-          type="education"
+          type={TYPE_EDUCATION}
           changeHandler={setInstitutes}
         />
         <Skills data={selectedSkills} />

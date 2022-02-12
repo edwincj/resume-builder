@@ -4,6 +4,10 @@ import SkillsView from "./SkillsView/SkillsView";
 import { Button, Container } from "react-bootstrap";
 import { useContext, useEffect } from "react";
 import { ResumeContext } from "../../App";
+import {
+  TYPE_EDUCATION,
+  TYPE_EXPERIENCE,
+} from "../../Constants/FunctionalConstants";
 
 const Preview = ({ data }) => {
   const { personalDetails, workPlaces, institutes, selectedSkills } = data;
@@ -15,8 +19,8 @@ const Preview = ({ data }) => {
   return (
     <>
       <PersonalView data={personalDetails} />
-      <Experience data={workPlaces} type={"experience"} />
-      <Experience data={institutes} type={"education"} />
+      <Experience data={workPlaces} type={TYPE_EXPERIENCE} />
+      <Experience data={institutes} type={TYPE_EDUCATION} />
       <SkillsView data={selectedSkills} />
       <Container className="button-container">
         <Button variant="success" onClick={submitHandler}>
