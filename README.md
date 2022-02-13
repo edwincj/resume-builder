@@ -15,11 +15,11 @@ As part of future improvements option to download resumé, upload photos and new
 
 The application has the following dependency
 
-* [React Bootstrap](https://github.com/react-bootstrap/react-bootstrap)
-* [React Icons](https://github.com/react-icons/react-icons)
-* [React Router Dom (V6)](https://github.com/remix-run/react-router)
-* [React Select](https://github.com/jedwatson/react-select)
-* [uuid](https://github.com/uuidjs/uuid)
+* [React Bootstrap](https://github.com/react-bootstrap/react-bootstrap) - For Bootstrap bindings in react
+* [React Icons](https://github.com/react-icons/react-icons) - For imcluding various icons
+* [React Router Dom (V6)](https://github.com/remix-run/react-router) - To define multiple routes in the application
+* [React Select](https://github.com/jedwatson/react-select) - For users to add skills and select skills from drop down
+* [uuid](https://github.com/uuidjs/uuid) - To generate DOM ids
 
 To run the app in your local in development mode
 
