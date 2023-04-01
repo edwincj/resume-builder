@@ -3,6 +3,8 @@ import Header from "./Components/Header/Header";
 import InitialDetails from "./Constants/InitialPersonalDetails";
 import Preview from "./Components/Preview/Preview";
 import Edit from "./Components/Edit/Edit";
+import { v4 as uuidv4 } from "uuid";
+import INITIAL_SECTION_DETAILS from "./Constants/InitialSection";
 
 import { useState, createContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
@@ -29,8 +31,18 @@ const App = ({ current }) => {
   const newHandler = () => {
     setSelectedSkills([]);
     setPersonalDetails(InitialDetails);
-    setInstitutes([]);
-    setWorkPlaces([]);
+    setInstitutes([
+      {
+        id: uuidv4(),
+        ...INITIAL_SECTION_DETAILS,
+      },
+    ]);
+    setWorkPlaces([
+      {
+        id: uuidv4(),
+        ...INITIAL_SECTION_DETAILS,
+      },
+    ]);
     setMode(MODE_EDIT);
     window.scrollTo(0, 0);
   };

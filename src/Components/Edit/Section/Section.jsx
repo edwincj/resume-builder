@@ -1,24 +1,24 @@
 import Item from "./Item";
-
-import { Button } from "react-bootstrap";
 import { BiPlus } from "react-icons/bi";
 import { v4 as uuidv4 } from "uuid";
+import "./Section.css";
+import { useEffect, useState } from "react";
+import INITIAL_SECTION_DETAILS from "../../../Constants/InitialSection";
+import PopUp from "../../Modal/PopUp";
 
 const Section = ({ type, data, changeHandler }) => {
+  const [showDelete, setShowDelete] = useState("");
   const clickHandler = () => {
     const newItem = {
       id: uuidv4(),
-      name: "",
-      degree: "",
-      start: "",
-      end: "",
+      ...INITIAL_SECTION_DETAILS,
     };
     changeHandler(prev => [...prev, newItem]);
   };
 
-  const deleteHandler = id => {
-    changeHandler(data => data.filter(item => item.id !== id));
-  };
+  // const deleteHandler = id => {
+  //   changeHandler(data => data.filter(item => item.id !== id));
+  // };
 
   const editItemHandler = (id, item) => {
     const newItem = [...data];
@@ -27,13 +27,27 @@ const Section = ({ type, data, changeHandler }) => {
     changeHandler(newItem);
   };
 
+  useEffect(() => {
+    if (!data.length) clickHandler();
+  }, []);
+  console.log(data);
+
   return (
     <div className="section">
+      <PopUp
+        show={!!showDelete.length}
+        onHide={() => setShowDelete("")}
+        onSubmit={() =>
+          changeHandler(data => data.filter(item => item.id !== showDelete))
+        }
+        message={`Are you sure you want to delete this ${type} field?`}
+        title={"Delete"}
+      />
       <div className="section-header">
         <div className="section-heading">{type}</div>
-        <Button variant="success" onClick={clickHandler}>
+        <div className="add-button symbol-button " onClick={clickHandler}>
           <BiPlus />
-        </Button>
+        </div>
       </div>
 
       {data.length === 0 ? (
@@ -45,9 +59,11 @@ const Section = ({ type, data, changeHandler }) => {
               key={item.id}
               data={item}
               index={index}
-              deleteHandler={deleteHandler}
+              // deleteHandler={deleteHandler}
+              deleteHandler={id => setShowDelete(id)}
               editHandler={editItemHandler}
               type={type}
+              deleteDisable={data.length <= 1}
             />
           );
         })

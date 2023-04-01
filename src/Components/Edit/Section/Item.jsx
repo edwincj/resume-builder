@@ -1,8 +1,15 @@
-import { Button, Col, Form, Row } from "react-bootstrap";
+import { Col, Form, Row } from "react-bootstrap";
 import { BiTrash } from "react-icons/bi";
 import { TYPE_EDUCATION } from "../../../Constants/FunctionalConstants";
 
-const Item = ({ data, index, deleteHandler, editHandler, type }) => {
+const Item = ({
+  data,
+  index,
+  deleteHandler,
+  editHandler,
+  type,
+  deleteDisable,
+}) => {
   const { id, name, degree, start, end } = data;
 
   const [Company, Designation] =
@@ -75,9 +82,14 @@ const Item = ({ data, index, deleteHandler, editHandler, type }) => {
         </Col>
 
         <Col md={1} className="column">
-          <Button variant="danger" onClick={() => deleteHandler(id)}>
+          <div
+            className={`delete-button symbol-button ${
+              deleteDisable ? " disabled-button" : ""
+            }`}
+            onClick={() => !deleteDisable && deleteHandler(id)}
+          >
             <BiTrash />
-          </Button>
+          </div>
         </Col>
       </Row>
     </>
