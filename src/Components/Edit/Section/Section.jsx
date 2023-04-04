@@ -25,7 +25,7 @@ const Section = ({ type, data, changeHandler }) => {
 
   useEffect(() => {
     if (!data.length) clickHandler();
-  });
+  }, []);
 
   return (
     <div className="section">
