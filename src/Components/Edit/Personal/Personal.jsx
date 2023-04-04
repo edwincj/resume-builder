@@ -4,7 +4,7 @@ import { Row, Col, Form } from "react-bootstrap";
 
 const Personal = ({ data, changeHandler }) => {
   const firstRef = useRef(null);
-  useEffect(() => firstRef.current.focus());
+  useEffect(() => firstRef.current.focus(), []);
   return (
     <div className="section">
       <div className="section-heading">Personal Details</div>
