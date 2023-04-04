@@ -1,7 +1,10 @@
+import { useRef, useEffect } from "react";
 import "./Personal.css";
 import { Row, Col, Form } from "react-bootstrap";
 
 const Personal = ({ data, changeHandler }) => {
+  const firstRef = useRef(null);
+  useEffect(() => firstRef.current.focus());
   return (
     <div className="section">
       <div className="section-heading">Personal Details</div>
@@ -15,6 +18,7 @@ const Personal = ({ data, changeHandler }) => {
             placeholder="Enter Name"
             value={data.name}
             onChange={e => changeHandler({ name: e.target.value })}
+            ref={firstRef}
           />
         </Col>
 
