@@ -20,6 +20,8 @@ The application has the following dependency
 * [React Router Dom (V6)](https://github.com/remix-run/react-router) - To define multiple routes in the application
 * [React Select](https://github.com/jedwatson/react-select) - For users to add skills and select skills from drop down
 * [uuid](https://github.com/uuidjs/uuid) - To generate DOM ids
+* [React Redux](https://react-redux.js.org/introduction/getting-started) - To implement a global state management using [redux](https://redux.js.org/) in react
+* [Redux Toolkit](https://redux-toolkit.js.org/) - To simplify redux implementations
 
 To run the app in your local in development mode
 
