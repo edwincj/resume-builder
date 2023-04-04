@@ -16,10 +16,6 @@ const Section = ({ type, data, changeHandler }) => {
     changeHandler(prev => [...prev, newItem]);
   };
 
-  // const deleteHandler = id => {
-  //   changeHandler(data => data.filter(item => item.id !== id));
-  // };
-
   const editItemHandler = (id, item) => {
     const newItem = [...data];
     const index = newItem.findIndex(i => i.id === id);
@@ -29,8 +25,7 @@ const Section = ({ type, data, changeHandler }) => {
 
   useEffect(() => {
     if (!data.length) clickHandler();
-  }, []);
-  console.log(data);
+  });
 
   return (
     <div className="section">
@@ -59,7 +54,6 @@ const Section = ({ type, data, changeHandler }) => {
               key={item.id}
               data={item}
               index={index}
-              // deleteHandler={deleteHandler}
               deleteHandler={id => setShowDelete(id)}
               editHandler={editItemHandler}
               type={type}

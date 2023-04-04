@@ -1,20 +1,19 @@
 import "./index.css";
-import App from "./App";
+import Header from "./Components/Header/Header";
 import React from "react";
 import ReactDOM from "react-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Provider } from "react-redux";
+import store from "./store";
+import App from "./App";
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
-      <Routes>
-        <Route path="/" element={<App current="edit" />} />
-        <Route path="/view" element={<App current="view" />} />
-        <Route path="/edit" element={<App current="edit" />} />
-      </Routes>
-    </BrowserRouter>
+    <Header />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );
