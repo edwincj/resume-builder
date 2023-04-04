@@ -39,6 +39,7 @@ const Edit = ({ create }) => {
         navigate("/");
       dispatch(getSingleResume(id));
     }
+    window.scrollTo(0, 0);
   }, [id, resumeList]);
 
   const resumeDetails = useSelector(state => state.resumes.selectedResume);
