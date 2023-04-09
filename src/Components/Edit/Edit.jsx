@@ -76,8 +76,6 @@ const Edit = ({ create }) => {
     setPersonalDetails(prev => ({ ...prev, ...change }));
   };
   const skillAddHandler = value => setSelectedSkills(value);
-
-  // const { submitHandler } = useContext(ResumeContext);
   const submitHandler = e => {
     e.preventDefault();
     const newResume = {
@@ -136,7 +134,10 @@ const Edit = ({ create }) => {
           <Button
             variant="primary"
             type="reset"
-            onClick={() => navigate("/new")}
+            onClick={() => {
+              newHandler();
+              navigate("/new");
+            }}
           >
             New
           </Button>

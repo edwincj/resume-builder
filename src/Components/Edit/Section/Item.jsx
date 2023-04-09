@@ -24,7 +24,7 @@ const Item = ({
   return (
     <>
       <Row className="section-subheader">
-        <Col md={1} className="column">
+        <Col md={1} className="column section-number">
           {index + 1 + ")"}
         </Col>
 

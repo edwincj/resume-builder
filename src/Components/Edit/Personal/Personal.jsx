@@ -57,6 +57,7 @@ const Personal = ({ data, changeHandler }) => {
             placeholder="Enter Phone"
             value={data.phone}
             onChange={e => changeHandler({ phone: e.target.value })}
+            minLength={10}
           />
         </Col>
       </Row>
