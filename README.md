@@ -37,5 +37,5 @@ The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
 ## Deployment
-You can view the live deployment [here](https://edwincj.github.io/resume-builder)
+You can view the live deployment [here](https://resume-builder-two-plum.vercel.app/)
 
